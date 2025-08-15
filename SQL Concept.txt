@@ -67,3 +67,31 @@ select database();
 DROP TABLE IF EXIST Table Name #DROP sub kuch ura dy ga
 TRANCATE TABLE Student; is mai table ki sub rows ur jati hain but structure rehta hy
 
+
+
+#Practice
+
+create database if not exists ShopDB;
+use ShopDB
+
+create table customer(
+customerid int auto_increment primary key,
+name varchar(100),
+email varchar(100) unique,
+address varchar(200)
+);
+
+insert into customer(name,email,address)
+values
+('asad naseem','masadnaseem.dev@gmail.com','karachi,pakistan'),
+('fahad naseem','mfahadnaseem.dev@gmail.com','karachi,pakistan');
+
+select * from customer;
+select name from customer;
+
+select * from customer where Address Like '%karachi%';
+select * from customer where Address Like '%karachi%' AND name = 'saad naseem';
+select * from customer where Address not like '%karachi%'
+select * from customer Order by name desc;
+update customer SET Address = 'islamabad,pakistan' where name = 'saad naseem';
+
