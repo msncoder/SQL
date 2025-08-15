@@ -1,0 +1,69 @@
+query vs command
+command ===> perform action to do something in database
+query ===> tor retrieve something from database
+
+
+commands
+1. CREATE DATABASE database_name;
+2. DROP DATABASE database_name;
+3. USE database_name;
+
+schema === it's a blue print of database, it have table, it's have column in table, relationship between tables.
+
+primary key === unique in table
+foreign key === it's provide linkage between two tables
+Normalization === No duplicate, data will be accurate and consistent. the storage should be efficient and logical.
+why normalization important == eliminate redundancy, increase consistency, improve efficiency, easy maintenance.
+
+
+Text data types
+1. char === fixed length
+2. varchar === un fixed length
+3. TinyText === short text
+4. Text === medium paragraph
+5. MediumText === ebooks, long posts
+6. LONGTEXT === very large text
+7. BLOB === vedios, Pictures
+
+Numerical data types
+1. TINYINT === Boolean 
+2. SMALLINT === pincode
+3. MIDIUMINT === user count in cities
+4. INT === NADRA ID
+5. BIGINT === BANK balance
+
+floating data types
+1. Decimal(m,d) m===total digits, d===digits after decimal points === discount dyny k leye
+2. Float(p,s) approximately values k leye
+3. Double === precise value
+
+
+CAMMAND TO CREATE DATABASE
+Create Database IF NOT EXIST CollageDB;
+USE ColageDB;
+select DATABASE();
+
+CREATE TABLE Students(
+	StudentID INT AUTO_INCREMENT PRIMARY KEY,
+	NAME VARCHAR(100),
+	AGE TINYINT,
+	EMAIL VARCHAR(100),
+	JOINDATE DATE
+);
+
+SELECT * FROM Students;
+
+INSERT INTO Students (NAME,AGE,EMAIL,JOINDATE)
+VALUES ('saad','25','msaadnaseem.dev@gmail.com','2025-8-15');
+
+#MODIFYING TABLE
+ALTER TABLE Students ADD COLUMN City VARCHAR(50) # ADD A COLUMN
+ALTER TABLE Students ADD COLUMN Age SMALLINT; # CHANGE A TYPE
+ALTER TABLE Student RENAME Email TO StudentEmail;
+
+
+#DELETE TABLE
+select database();
+DROP TABLE IF EXIST Table Name #DROP sub kuch ura dy ga
+TRANCATE TABLE Student; is mai table ki sub rows ur jati hain but structure rehta hy
+
