@@ -1,4 +1,4 @@
-query vs command
+	query vs command
 command ===> perform action to do something in database
 query ===> tor retrieve something from database
 
@@ -93,5 +93,49 @@ select * from customer where Address Like '%karachi%';
 select * from customer where Address Like '%karachi%' AND name = 'saad naseem';
 select * from customer where Address not like '%karachi%'
 select * from customer Order by name desc;
-update customer SET Address = 'islamabad,pakistan' where name = 'saad naseem';
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE customer 
+SET Address = 'lahore,pakistan' 
+WHERE name = "samad";
+
+SET SQL_SAFE_UPDATES = 1;
+
+delete from customer where name = "saad";
+
+
+aggregation === bohut sari rows py dependable hy but summary la k dy ga
+
+create database if not exists SimpleStore;
+use SimpleStore;
+
+create table sales(
+salesID int auto_increment primary key,
+product varchar(50),
+category varchar(50),
+amount decimal(10,2),
+salesDate date
+);
+
+insert into sales(product,category,amount,salesDate)
+values
+('pen','stationary','25.00','2025-03-01'),
+('notebook','stationary','25.00','2025-03-01'),
+('mouse','stationary','25.00','2025-03-01'),
+('charger','stationary','25.00','2025-03-01'),
+('keyboard','stationary','25.00','2025-03-01')
+
+select count(*) from sales;
+
+select sum(amount) from sales;
+
+select AVG(amount) from sales;
+
+select MIN(amount) from sales;
+
+select Max(amount) from sales;
+
+grouping === bohut sari rows ko cobine krna with smilar values
 
