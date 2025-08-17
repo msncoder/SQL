@@ -139,3 +139,14 @@ select Max(amount) from sales;
 
 grouping === bohut sari rows ko cobine krna with smilar values
 
+Select category, SUM(Amount)
+From Sales
+Group BY Category.
+
+having === kis category ny 1000 sy upar paisy la k diye == group ko filter krna
+
+Select category, SUM(Amount)
+From Sales
+Group BY Category
+Having SUM(Amount) > 1000;
+
