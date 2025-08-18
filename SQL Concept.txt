@@ -150,3 +150,44 @@ From Sales
 Group BY Category
 Having SUM(Amount) > 1000;
 
+
+create database if not exists RetailStore;
+
+use RetailStore;
+
+create table customers(
+	customerID int primary key,
+    customerName varchar(100)
+    );
+    
+insert into customers values
+(1,"saad"),
+(2,"fahad"),
+(3,"asad");
+
+create table orders (
+orderID int primary key,
+Product varchar(100),
+Amount decimal(10,2),
+customerID int,
+foreign key (customerID) references customers(customerID)
+);
+
+insert into orders values
+(101,'Laptop',5000,2),
+(102,'mouse',500,1),
+(103,'keyboard',700,1)
+
+#INNER JOIN
+
+select customers.CustomerName, orders.Product, orders.Amount
+From customers
+Inner Join Orders On customers.customerID = orders.customerID;
+
+#LEFT JOIN
+
+select customers.CustomerName, orders.Product, orders.Amount
+From customers
+left Join Orders On customers.customerID = orders.customerID;
+
+
