@@ -68,7 +68,6 @@ DROP TABLE IF EXIST Table Name #DROP sub kuch ura dy ga
 TRANCATE TABLE Student; is mai table ki sub rows ur jati hain but structure rehta hy
 
 
-
 #Practice
 
 create database if not exists ShopDB;
@@ -178,16 +177,40 @@ insert into orders values
 (102,'mouse',500,1),
 (103,'keyboard',700,1)
 
-#INNER JOIN
+#INNER JOIN === jo rows match karay gi un ka data la k dy ga
 
 select customers.CustomerName, orders.Product, orders.Amount
 From customers
 Inner Join Orders On customers.customerID = orders.customerID;
 
-#LEFT JOIN
+#LEFT JOIN == ye pori row left side walay table ki dekha dy ga ju matching rows right table ki hongi wo bhe dekah dy ga agar record nhi hoga tu null dekhai ga
 
 select customers.CustomerName, orders.Product, orders.Amount
 From customers
 left Join Orders On customers.customerID = orders.customerID;
+
+#right join === right table mai left table sy mataching krti hogi values ow dekahi ga
+
+select customers.CustomerName, orders.Product, orders.Amount
+From customers
+left Join Orders On customers.customerID = orders.customerID;
+
+
+# full outer join === union of left and right join
+
+select customers.CustomerName, orders.Product, orders.Amount
+From customers
+left Join Orders On customers.customerID = orders.customerID;
+
+union
+
+select customers.CustomerName, orders.Product, orders.Amount
+From customers
+left Join Orders On customers.customerID = orders.customerID;
+
+
+subquries and views in MySQL
+
+select product,amount from sales where amount > (select avg(amount) from sales);
 
 
